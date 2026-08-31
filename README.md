@@ -19,7 +19,7 @@
 新设备上执行：
 
 ```bash
-git clone <repo-url> ~/dotfiles && cd ~/dotfiles && ./install.sh
+git clone https://github.com/ly19961111/dotfiles.git ~/dotfiles && cd ~/dotfiles && ./install.sh
 ```
 
 脚本会自动：安装 `statusline.sh` 到 `~/.claude/scripts/`，并把
