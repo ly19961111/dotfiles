@@ -247,7 +247,7 @@ if [ -n "$output_style" ] && [ "$output_style" != "default" ]; then
 fi
 
 if [ -n "$short_dir" ]; then
-  parts+=("${C_DIR}⌂ ${short_dir}${RST}")
+  parts+=("${C_DIR}目录: ${short_dir}${RST}")
 fi
 
 if [ "$is_worktree" -eq 1 ] && [ -n "$worktree_name" ]; then
