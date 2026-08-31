@@ -14,13 +14,27 @@
 
 **要求**：Claude Code ≥ 2.1.251（`prompt_cache` 字段）；**依赖** `jq`。
 
-## 安装
+## 安装（新设备）
 
-新设备上执行：
+本仓库是**私有**的，clone 前先在目标设备上完成 GitHub 认证（三选一）：
+
+1. **gh CLI（推荐，全平台）**：`gh auth login --web`（拿 one-time code，浏览器授权）。
+   gh 安装：macOS 用官方 zip 二进制；Windows `winget install GitHub.cli`；Linux `sudo apt install gh`。
+2. **PAT**：GitHub 网页生成 fine-grained token，clone 时当作 https 密码输入。
+3. **SSH**：生成 `~/.ssh/id_ed25519` 后把公钥加到 GitHub 账户，用 `git@github.com:...` 地址。
+
+之后：
 
 ```bash
-git clone https://github.com/ly19961111/dotfiles.git ~/dotfiles && cd ~/dotfiles && ./install.sh
+gh repo clone ly19961111/dotfiles ~/dotfiles && cd ~/dotfiles && ./install.sh
 ```
+
+（手动的 `git clone https://github.com/...` 也可，但会提示用户名/密码——没有 token 就进不去。）
+
+`install.sh` 会自动：安装 `statusline.sh` 到 `~/.claude/scripts/`，并把
+`statusLine` 配置**安全合并**进 `~/.claude/settings.json`（不覆盖其他配置）。
+它还会检查 `jq`，没装会提示（macOS `brew install jq` / Windows `winget install jqlang.jq`）。
+完成后重启 Claude Code 生效。
 
 脚本会自动：安装 `statusline.sh` 到 `~/.claude/scripts/`，并把
 `statusLine` 配置**安全合并**进 `~/.claude/settings.json`（不覆盖其他配置）。
