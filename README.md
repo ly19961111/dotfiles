@@ -36,6 +36,25 @@ gh repo clone ly19961111/dotfiles ~/dotfiles && cd ~/dotfiles && ./install.sh
 它还会检查 `jq`，没装会提示（macOS `brew install jq` / Windows `winget install jqlang.jq`）。
 完成后重启 Claude Code 生效。
 
+### Windows 安装（全程在 Git Bash 里做）
+
+Claude Code 在 Windows 上会**自动用 Git Bash** 运行状态栏命令，脚本无需任何改动。
+前提装好三样：Git for Windows、gh、jq（PowerShell 里执行）：
+
+```powershell
+winget install Git.Git GitHub.cli jqlang.jq
+```
+
+然后打开 **Git Bash**，依次：
+
+```bash
+gh auth login --web        # 浏览器授权（私有仓库需要）
+gh repo clone ly19961111/dotfiles ~/dotfiles
+cd ~/dotfiles && ./install.sh
+```
+
+重启 Claude Code 生效。
+
 脚本会自动：安装 `statusline.sh` 到 `~/.claude/scripts/`，并把
 `statusLine` 配置**安全合并**进 `~/.claude/settings.json`（不覆盖其他配置）。
 完成后重启 Claude Code 生效。
